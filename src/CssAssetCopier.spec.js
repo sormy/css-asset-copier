@@ -1,7 +1,7 @@
 import chai from 'chai';
 import fse from 'fs-extra';
 
-import CssUrlRewriter from './CssUrlRewriter';
+import CssUrlRewriter from 'css-url-rewriter-ex';
 import CssAssetCopier from './CssAssetCopier';
 
 const expect = chai.expect;

@@ -1,22 +1,23 @@
 {
-  "name": "css-url-rewrite-tools",
+  "name": "css-asset-copier",
   "version": "1.0.0",
-  "description": "CSS URL rewriter and asset copier",
-  "main": "dist/index.js",
+  "description": "CSS URL asset copier for CSS URL rewriter",
+  "main": "dist/CssAssetCopier.js",
   "keywords": [
     "CSS",
     "URL",
-    "rewrite"
+    "asset",
+    "copy"
   ],
   "author": "Artem Butusov <art.sormy@gmail.com>",
-  "homepage": "https://github.com/sormy/css-url-rewrite-tools",
+  "homepage": "https://github.com/sormy/css-asset-copier",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sormy/css-url-rewrite-tools"
+    "url": "https://github.com/sormy/css-asset-copier"
   },
   "bugs": {
-    "url": "https://github.com/sormy/css-url-rewrite-tools/issues"
+    "url": "https://github.com/sormy/css-asset-copier/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -25,6 +26,7 @@
     "babel-preset-latest": "^6.16.0",
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
+    "css-url-rewriter-ex": "^1.0.0",
     "eslint": "^3.7.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^2.0.0",

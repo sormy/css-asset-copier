@@ -1,51 +1,23 @@
-# CSS URL Rewrite Tools #
+# CSS Asset Copier #
 
 ## Features ##
 
-- Designed to be used as dependency for other libraries
-- Rewrite CSS URLs to root path
-- Rewrite CSS URLs with custom URL resolver
-- Track all processed URLs
-- Copy CSS related local assets
+- Designed to be used with `css-url-rewriter-ex` library
+- Copy CSS related local assets to target directory
 - Covered by unit tests
 
-## TODO ##
+## Installation ##
 
-- Add source maps support via `source-map` npm package
+```shell
+npm install css-asset-copier
+```
 
 ## Usage ##
 
-### Standard Rewrite ###
-
 ```javascript
-var rewriter = new CssUrlRewriter({ root: path.resolve('.') });
-var fixedContent = rewriter.rewrite(filename, originalContent);
-```
+var CssUrlRewriter = require('css-url-rewriter-ex');
+var CssAssetCopier = require('css-asset-copier');
 
-### Custom Resolver ###
-
-- `function resolver(url, filename, option) { ... }`
-- absolute and data urls are not resolved by default
-- return `false` to skip rewrite
-- return `undefined` or null to use default resolver
-- return `string` with resolved url to use it
-
-```javascript
-var rewriter = new CssUrlRewriter({
-  root: SystemJS.baseURL,
-  resolver: function (url, filename, options) {
-    // resolve jspm: paths here and use default for all others
-    if (url.match(/^jspm:/)) {
-      return SystemJS.normalizeSync(url.substr(5));
-    }
-  }
-});
-var fixedContent = rewriter.rewrite(filename, originalContent);
-```
-
-### Asset Copier ###
-
-```javascript
 const rewriter = new CssUrlRewriter();
 const assetCopier = new CssAssetCopier('dist');
 
