@@ -1,6 +1,6 @@
 {
   "name": "css-asset-copier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CSS URL asset copier for CSS URL rewriter",
   "main": "dist/CssAssetCopier.js",
   "keywords": [
@@ -42,5 +42,11 @@
     "build": "mkdir -p dist && babel src --out-dir dist --ignore spec.js --source-maps",
     "lint": "eslint .",
     "test": "mocha --compilers js:babel-register --require 'core-js' 'src/**/*.spec.js'"
+  },
+  "jspm": {
+    "main": "CssAssetCopier.js",
+    "directories": {
+      "lib": "dist"
+    }
   }
 }
