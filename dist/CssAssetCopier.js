@@ -4,9 +4,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _promise = require('babel-runtime/core-js/promise');
 
-require('core-js');
+var _promise2 = _interopRequireDefault(_promise);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _path = require('path');
 
@@ -18,8 +26,6 @@ var _fsExtra2 = _interopRequireDefault(_fsExtra);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 var CssAssetCopier = function () {
   /**
    * Constructor.
@@ -27,7 +33,7 @@ var CssAssetCopier = function () {
    * @param {String} target
    */
   function CssAssetCopier(target) {
-    _classCallCheck(this, CssAssetCopier);
+    (0, _classCallCheck3.default)(this, CssAssetCopier);
 
     this.target = target || '.';
     this.copyPromises = {};
@@ -42,7 +48,7 @@ var CssAssetCopier = function () {
    */
 
 
-  _createClass(CssAssetCopier, [{
+  (0, _createClass3.default)(CssAssetCopier, [{
     key: 'copyAssets',
     value: function copyAssets(tasks) {
       var _this = this;
@@ -60,7 +66,7 @@ var CssAssetCopier = function () {
         return undefined;
       });
 
-      return Promise.all(promises);
+      return _promise2.default.all(promises);
     }
   }, {
     key: 'copyAsset',
@@ -69,7 +75,7 @@ var CssAssetCopier = function () {
         return this.copyPromises[toPath];
       }
 
-      var promise = new Promise(function (resolve, reject) {
+      var promise = new _promise2.default(function (resolve, reject) {
         _fsExtra2.default.copy(fromPath, toPath, function (error) {
           if (error) {
             reject(error);
@@ -84,7 +90,6 @@ var CssAssetCopier = function () {
       return promise;
     }
   }]);
-
   return CssAssetCopier;
 }();
 
